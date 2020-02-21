@@ -38,4 +38,11 @@
 <div id='ui'></div>
   <script src="build/TerriaMap.js"></script>
 </body>
+
+<!-- Ensure this can't be accessed outside of iframe -->
+<script>
+  if(window.top.location.href.includes('terriajs')) {
+      window.top.location.href = window.location.origin;
+  }
+</script>
 </html>

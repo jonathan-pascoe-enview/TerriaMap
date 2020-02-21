@@ -33,8 +33,13 @@ export default function UserInterface(props) {
   return (
     <StandardUserInterface {...props} version={version}>
       <Menu>
-        <RelatedMaps viewState={props.viewState} />
-        <MenuItem caption="About" href="about.html" key="about-link" />
+        {/* <RelatedMaps viewState={props.viewState} /> */}
+        <MenuItem
+          caption="Home"
+          href={window.location.origin}
+          target="_top"
+          key="home-link"
+        />
       </Menu>
       <Nav>
         <MeasureTool terria={props.viewState.terria} key="measure-tool" />
