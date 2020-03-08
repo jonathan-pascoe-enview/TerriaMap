@@ -34,11 +34,13 @@ export default function UserInterface(props) {
     <StandardUserInterface {...props} version={version}>
       <Menu>
         {/* <RelatedMaps viewState={props.viewState} /> */}
+        {/* <MenuItem caption="About" href="about.html" key="about-link" /> */}
         <MenuItem
           caption="Home"
-          href={window.location.origin}
-          target="_top"
           key="home-link"
+          onClick={() => {
+            window.parent.postMessage("on_home_click", "*");
+          }}
         />
       </Menu>
       <Nav>
