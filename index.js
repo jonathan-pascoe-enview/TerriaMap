@@ -80,14 +80,15 @@ module.exports = terria.start({
 
         // Create the various base map options.
         // var createAustraliaBaseMapOptions = require('terriajs/lib/ViewModels/createAustraliaBaseMapOptions');
-        var createGlobalBaseMapOptions = require('terriajs/lib/ViewModels/createGlobalBaseMapOptions');
+        // var createGlobalBaseMapOptions = require('terriajs/lib/ViewModels/createGlobalBaseMapOptions');
+        var createGlobalBaseMapOptions = require('./lib/ViewModels/createEnviewBasemapOptions');
         var selectBaseMap = require('terriajs/lib/ViewModels/selectBaseMap');
 
         // var australiaBaseMaps = createAustraliaBaseMapOptions(terria);
         var globalBaseMaps = createGlobalBaseMapOptions(terria, terria.configParameters.bingMapsKey);
 
         // var allBaseMaps = australiaBaseMaps.concat(globalBaseMaps);
-        var allBaseMaps = globalBaseMaps
+        var allBaseMaps = globalBaseMaps;
         selectBaseMap(terria, allBaseMaps, 'Bing Maps Aerial with Labels', true);
 
         // Show a modal disclaimer before user can do anything else.
