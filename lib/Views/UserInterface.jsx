@@ -32,10 +32,17 @@ function isBrowserSupportedAV() {
 export default function UserInterface(props) {
   return (
     <StandardUserInterface {...props} version={version}>
-      <Menu>
+      {/* <Menu>
         <RelatedMaps viewState={props.viewState} />
         <MenuItem caption="About" href="about.html" key="about-link" />
-      </Menu>
+        <MenuItem
+          caption="Home"
+          key="home-link"
+          onClick={() => {
+            window.parent.postMessage("on_home_click", "*");
+          }}
+        />
+      </Menu> */}
       <Nav>
         <MeasureTool terria={props.viewState.terria} key="measure-tool" />
       </Nav>

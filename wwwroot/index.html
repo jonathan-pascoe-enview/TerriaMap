@@ -28,6 +28,13 @@
 
     <title>Terria Map</title>
 
+    <!-- Ensure this can't be accessed outside of iframe -->
+    <script>
+      if(window.top.location.href.includes('terriajs')) {
+          window.top.location.href = window.location.origin;
+      }
+    </script>
+
     <!-- Leaflet -->
     <script>L_PREFER_CANVAS = true;</script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
@@ -44,4 +51,5 @@
     };
   </script>
 </body>
+
 </html>
