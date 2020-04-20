@@ -45,6 +45,8 @@
 <div id='ui'></div>
   <script src="build/TerriaMap.js"></script>
   <script>
+    // Push `onmousemove` events up to the top frame
+    // utilized by SessionTimeout code in the WebProduct
     document.onmousemove = function () {
         top.postMessage("onmousemove");
         return false;
