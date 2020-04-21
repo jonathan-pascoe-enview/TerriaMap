@@ -45,10 +45,20 @@
 <div id='ui'></div>
   <script src="build/TerriaMap.js"></script>
   <script>
-    // Push `onmousemove` events up to the top frame
+    // Push `sessionactive` events up to the top frame
     // utilized by SessionTimeout code in the WebProduct
+    let mouseMovedAtTimestamp = Date.now();
+    const SESSION_ACTIVE_NOTIFICATION_INTERVAL_IN_MILLISECONDS = 30000; 
+    setInterval(() => {
+      // If mouse moved in the past n seconds, post message to the top frame
+      if ((Date.now() - mouseMovedAtTimestamp) < SESSION_ACTIVE_NOTIFICATION_INTERVAL_IN_MILLISECONDS){
+        top.postMessage("sessionactive");
+      }
+    }, SESSION_ACTIVE_NOTIFICATION_INTERVAL_IN_MILLISECONDS);
+
+    // Register mouse movement and store timestamp
     document.onmousemove = function () {
-        top.postMessage("onmousemove");
+      mouseMovedAtTimestamp = Date.now();
         return false;
     };
   </script>
